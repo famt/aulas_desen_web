@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <title>Hello, world!</title>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-header container">
+                    <h2>Cadastro de Campus e Cursos</h2>
+                </div>
+
+                <form method="POST" action="/api/campus">
+                    <div class="form-row">
+                        <label>Campus :</label>
+                        <input type="text" id="campus" name="campus" required>
+                    </div>
+                    <div class="form-row">
+                        <label>Curso(s) :</label>
+                        <input type="text" id="curso" name="curso" required>
+                        <button id="more" name="nome">+</button>
+                    </div>
+
+                    <input type="submit" name="Salvar" value="Salvar">
+                </form>
+            </div>
+        </div>
+    
+
+    </body>
+
+</html>

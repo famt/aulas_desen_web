@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!--<h1>Hello, world!</h1> -->
+
+     <div class="container" id="form">
+
+        <div class="row">
+            <h1>Sistema de Controle de Alunos</h1>
+            <img id="ajuda" data-toggle="modal" data-target="#modalAutora" src="img/ajuda.jpg"  style="width: 40px; height: 40px; margin-left: 20px;" >
+        </div>
+      
+        <div class="modal fade" id="modalAutora">
+
+            <div class="modal-dialog">
+                <div class="modal-content">
+                      <div class="modal-header">
+                          <h4 class="modal-title">Autor</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                          <img src="img/autora.jpg" alt="autora" class="float-left" 
+                          style="width: 30px; height: 30px; border-radius: 50%;
+                          width: 150px;
+                          height: 150px;
+                          overflow: hidden;
+                          position: relative;">
+                          <p>Olá, sou Vitoria Verçosa!!! Aluna do curso de Ciencia da Computação na Univeridade Federal do Ceará
+                            atualmente cursando o oitavo semestre
+                          </p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                      </div>
+                  </div>
+            </div>
+
+        </div>
+    
+
+      <div class="card">
+
+            <div class="card-header container" style="background-color: rgb(32, 93, 185); color: white"  >
+              <strong>Formulário de Alunos</strong>
+            </div> <!--close card-header-->
+
+            <div class="card-body container">
+                <!--<form id="form_aluno"  onsubmit="event.preventDefault(); adicionarAluno();">-->  
+                <form id="form_aluno" action="/api/alunos/<%=dados.acao%>" method="POST">
+
+                  <div class="form-row">
+                    <%if(alunoSelecionado.matricula == ''){%>
+                      <div class="form-group col-md-5">
+                            <label for="inputMatricula"><strong>Matricula</strong></label>
+                            <input type="text" class="form-control" id="inputMatricula" name="matricula" required>
+                      </div> 
+                    <%}%>
+
+                      <div class="form-group col-md-7">
+                          <label for="inputNome"><strong>Nome</strong></label>
+                          <input type="text" class="form-control" value="<%= alunoSelecionado.nome%>" id="inputNome" name="nome" required>
+                      </div>
+
+                  </div><!--close row-->
+
+                  <div class="form-row">
+
+                      <div class="form-group col-md-5">
+
+                          <label for="inputDataNasc"><strong>Data de Nascimento</strong></label>
+                          <input type="text" class="form-control" id="inputDataNasc" value="<%= alunoSelecionado.dataNasc%>" placeholder="05/06/1972" name="dataNasc" required>
+
+                      </div>
+                      
+                      <div class="form-group col-md-7">
+
+                          <label for="inputEmail"><strong>Email</strong></label>
+                          <input type="email" class="form-control" id="inputEmail" value="<%= alunoSelecionado.email%>" placeholder="Email" name="email" required>
+
+                      </div>
+
+                  </div><!--close row-->
+
+                  <div class="form-row">
+
+                      <div class="form-group col-md-1">
+
+                          <label for="inputDDD"><strong>DDD</strong></label>
+                          <input type="text" class="form-control" id="inputDDD" value="<%= alunoSelecionado.DDD%>" name="DDD" required>
+
+                      </div>
+
+                      <div class="form-group col-md-4">
+                          <label for="inputTelefone"><strong>Telefone</strong></label>
+                          <input type="text" class="form-control" id="inputTelefone" value="<%= alunoSelecionado.telefone%>" name="telefone" required>
+                      </div>
+
+                      <div class="form-group col-md-1">
+                        <label for="inputOperadora"><strong>Operadora</strong></label>
+                        <select class="form-control" id="inputOperadora" name="operadora" required>
+                          <option selected>...</option>
+                          <option>Oi</option>
+                          <option>Tim</option>
+                          <option>Claro</option>
+                          <option>Vivo</option>
+                        </select> 
+                      </div>
+
+                  </div><!--close row-->
+
+                  <div class="form-row">
+
+                      <div class="form-group col-md-2">
+                        <label for="inputCampus"><strong>Campus</strong></label>
+                        <select class="form-control" id="inputCampus" name="campus" required>
+                          <option selected>Escolher...</option>
+                          <option value="Pici">Pici</option>
+                          <option value="Benfica" selected>Benfica</option>
+                          <option value="Porangabussu">Porangabussu</option>
+                        </select> 
+                      </div>
+
+                      <div class="form-group col-md-10">
+                          <label for="inputCurso"><strong>Curso</strong></label>
+                          <select id="inputCurso" class="form-control" name="curso" required>
+                            <option>letras</option> 
+
+              
+                          </select>
+                      </div> <!---->
+
+                  </div><!--close row -->
+
+                  <div class="card-footer" style="background-color: rgb(240, 240, 240); color: white"  >
+                      <a href="api/campus">Cadastrar Campus</a>
+                      <%if(dados.acao == '') {%>
+                      <button type="submit" class="btn float-right btn-light" value="Confirmar">Inserir</button>
+                      <%}else{%>
+                      <button type="submit" class="btn float-right btn-light" value="Alterar"><%=dados.metodo%><%=dados.acao%></button>
+                      <%}%>
+                      <button type="reset" class="btn float-right btn-light" value="Limpar">Limpar</button>
+                      <!--<input type="submit" class="btn float-right btn-light" value="Inserir Linha" onclick="processar('tableAluno')">-->
+                      
+                  </div><!--close card-footer -->
+                </form>
+            </div> <!--close card-body -->
+
+
+
+      </div> <!--close card-->
+    </div>
+        <br>
+        <div class="container">
+
+            <table >
+                    <thead >
+                      <tr ><!--class="row">-->
+                        <th style="width: 10%" scope="col">Matricula</th><!--class="form-group col-md-3"-->
+                        <th style="width: 15%" scope="col">Nome</th><!--class="form-group col-md-6"-->
+                        <th style="width: 10%" scope="col">Ações</th><!--class="form-group col-md-3"-->
+                      </tr>
+                    </thead>
+
+                    <tbody id="tableAluno">
+                        <% for (var i=0; i < alunos.length; i++) {%>
+                      <form action="api" method=""></form>
+                          <tr>
+                            <td><%= alunos[i].matricula %></td>
+                            <td><%= alunos[i].nome %></td>
+                            <td><a href="preencherCampos?matricula=<%= alunos[i].matricula %>">Atualizar</a></td>
+                            <td><a href="removerAluno?matricula=<%= alunos[i].matricula %>">Deletar</a></td>
+                          </tr>
+                          
+                        <% } %>
+                    </tbody>
+                <!--</div>-->
+            </table>
+
+      </div><!--close card da tabela -->
+
+    <script src="js/aluno.js"></script>
+  </body>
+</html>
