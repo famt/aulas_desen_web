@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Cadastro de Contatos</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">        
+    </head>
+        <body>
+            <div style="text-align:center;width:50%;">
+                    <form action="/api/alunos" method="GET" >
+                        <input type="hidden" id="_id" value="<%= aluno._id %>">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" value="<%= aluno.nome %>" aria-describedby="nomeHelp" placeholder="Digite o nome">
+                        </div>
+                        <div class="form-group">
+                                <label for="sobreNome">SobreNome</label>
+                                <input type="text" class="form-control" id="sobreNome" value="<%= aluno.sobreNome %>" aria-describedby="sobreNomeHelp" placeholder="Digite o sobreNome">
+                            </div>                        
+
+                        <input type="submit" class="button" id="botao" value="Atualizar">   
+                    </form>
+        
+            </div>
+        </body>
+    <script>
+        function atualizar(){
+            let aluno = {
+                nome: document.getElementById('nome').value,
+                sobreNome: document.getElementById('sobreNome').value,
+            }
+            axios.put('/api/alunos/'+document.getElementById('_id').value, aluno);
+        }
+        var botao = document.getElementById('botao');
+		botao.onclick = atualizar;
+    </script>
+</html>

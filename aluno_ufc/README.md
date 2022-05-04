@@ -1,0 +1,1 @@
+Projeto - FrontEnd para uma aplicação de controle de alunos que consome um serviço REST via React/AXIOS

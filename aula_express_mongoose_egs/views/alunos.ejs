@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Cadastro de Contatos</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    </head>
+        <body>
+
+            <div style="text-align:center;">
+                    <% if (alunos.length > 0) {%>
+                        <table class="table" style="width: 60%;margin-left:auto;margin-right:auto;">
+                            <thead class="thead-dark">
+                                <tr scope="row">
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>SobreNome</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                        <% for (var i=0; i < alunos.length; i++) { %>
+                            <tbody>
+                                <tr>
+                                    <td><%= alunos[i]._id %></td>
+                                    <td><%= alunos[i].nome %></td>
+                                    <td><%= alunos[i].sobreNome %></td>
+                                    <td>
+                                        <a href=/api/alunos/atualiza/<%= alunos[i]._id %>>Atualiza</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="remover('<%= alunos[i]._id %>'); return false;">Remover</a></td>
+                                </tr>
+                            </tbody>
+                        <% }; %>
+                        </table>
+                
+                    <% } else { %>
+                        <div>
+                            Nenhum registro cadastrado
+                        </div>
+                    <% }%>
+                    <div>
+                        <a href='/novo_aluno.html'> Inserir novo aluno</a>
+                    </div>                
+            </div>
+
+<!-- <%- include('includes/rodape.ejs') %> -->
+
+<script>
+        function remover(aluno_id){
+            console.log(aluno_id);
+            axios.delete('/api/alunos/'+aluno_id, {});
+            location.reload();
+        }
+    </script>
+</body>
+</html>
