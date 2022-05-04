@@ -1,0 +1,96 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans';
+}
+
+body {
+    background: #444;
+    margin-left: 96px;
+    margin-right: 96px;
+    margin-top: 48px;
+    min-width: 580px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+.infos {
+    margin-top: 24px;
+    margin-left: 3%;
+    text-align: left;
+    color: #fff;
+    flex: content;
+}
+
+.filter {
+    margin-top: 32px;
+    margin-right: 3%;
+    text-align: right;
+}
+
+.filter-input {
+    padding: 8px 0px 8px 8px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #5d0cff;
+    outline: none;
+    width: 320px;
+    background: transparent;
+    color: #fff;
+}
+
+.lista-de-tarefas-form {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.item-input {
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #5d0cff;
+    outline: none;
+    width: 320px;
+    background: transparent;
+    color: #fff;
+}
+
+.item-button {
+    padding: 16px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+    background: #5d0cff;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px auto;
+    color: #fff;
+    background: #333;
+    padding: 16px;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.checked {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.footer {
+    padding: 14px 16px 14px 16px;
+    display: flex;
+}
